@@ -1,21 +1,21 @@
-import type { Colors, Typography } from './typings';
+import type { Colors, Labels } from './typings';
 
-export const typographies: Typography = {
-  bubbleLabel: 'Feedback',
+export const defaultLabels: Labels = {
+  bubble: 'Feedback',
   options: {
-    title: 'Leave your feedback',
+    heading: 'Leave your feedback',
   },
   form: {
     fieldPlaceholder: 'Tell us with details what is happening...',
-    buttonLabel: "Send feedback"
+    button: "Send feedback"
   },
   successfully: {
-    title: "Thank you!",
-    buttonLabel: "I want to send another feedback"
+    heading: "Thank you!",
+    button: "I want to send another feedback"
   },
   error: {
-    title: "It wasn't possible to send your feedback :(",
-    buttonLabel: "I want to try again"
+    heading: "It wasn't possible to send your feedback :(",
+    button: "I want to try again"
   }
 }
 

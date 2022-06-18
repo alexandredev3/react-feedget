@@ -1,17 +1,20 @@
 {
   "name": "react-feedget",
-  "version": "0.1.0",
+  "version": "1.1.2",
   "license": "MIT",
   "author": "alexandredev3",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "module": "dist/feedget.esm.js",
+  "module": "dist/react-feedget.esm.js",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "engines": {
     "node": ">=10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexandredev3/react-feedget"
   },
   "scripts": {
     "start": "tsdx watch",

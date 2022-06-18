@@ -44,27 +44,32 @@ export interface Transition {
     to: string;
   };
 }
-export interface Typography {
-  bubbleLabel?: string;
-  options?: {
-    title?: string;
+export interface Labels {
+  bubble: string;
+  options: {
+    heading: string;
   };
-  form?: {
-    fieldPlaceholder?: string;
-    buttonLabel?: string;
+  form: {
+    fieldPlaceholder: string;
+    button: string;
   };
-  successfully?: {
-    title?: string;
-    buttonLabel?: string;
+  successfully: {
+    heading: string;
+    button: string;
   };
-  error?: {
-    title?: string;
-    buttonLabel?: string;
+  error: {
+    heading: string;
+    button: string;
   };
 }
+
+export type CustomLabels = Labels extends object ? {
+  [P in keyof Labels]?: Partial<Labels[P]>;
+} : Labels;
+
 export interface FeedgetProps {
   options: Options;
-  typography?: Typography;
+  labels?: CustomLabels;
   extendTheme?: {
     colors?: Colors;
   };

@@ -12,7 +12,7 @@ interface FormProps {
 }
 
 export function Form({ onSubmitted, renderScreenshotButton }: FormProps) {
-  const { typographies } = useFeedget();
+  const { labels } = useFeedget();
   const { register, handleSubmit, setValue, formState } = useForm<FormValues>();
 
   const onSubmit: SubmitHandler<FormValues> = async (values) => {
@@ -35,7 +35,7 @@ export function Form({ onSubmitted, renderScreenshotButton }: FormProps) {
             ? "border-red-500 focus:border-red-500 focus:ring-red-500"
             : "border-600 focus:border-brand-500 focus:ring-brand-500"
         } bg-transparent rounded-md focus:ring-1 focus:outline-none resize-none scrollbar-thumb-700 scrollbar-700 scrollbar-track-900 scrollbar-thin`}
-        placeholder={typographies.form.fieldPlaceholder}
+        placeholder={labels.form.fieldPlaceholder}
         {...register("comment", { required: true })}
       />
 
@@ -56,7 +56,7 @@ export function Form({ onSubmitted, renderScreenshotButton }: FormProps) {
           {formState.isSubmitting ? (
             <Loading color="900" />
           ) : (
-            <span>{typographies.form.buttonLabel}</span>
+            <span>{labels.form.button}</span>
           )}
         </button>
       </footer>

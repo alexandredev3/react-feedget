@@ -20,7 +20,7 @@ export function Widget({
   renderScreenshotButton = true,
   renderFooter: Footer = () => null,
 }: WidgetProps) {
-  const { options, typographies } = useFeedget();
+  const { options, labels } = useFeedget();
 
   const [optionSelected, setOptionSelected] = useState<string | null>(null);
   const [currentStep, setCurrentStep] = useState<Steps>(INITIAL_STEP);
@@ -40,7 +40,7 @@ export function Widget({
       <>
         <header>
           <span className="text-xl text-100 leading-6 flex items-center gap-2">
-            {typographies.options.title}
+            {labels.options.heading}
           </span>
 
           <Close />
@@ -126,14 +126,14 @@ export function Widget({
           </svg>
 
           <span className="text-100 text-xl mt-2">
-            {typographies.successfully.title}
+            {labels.successfully.heading}
           </span>
 
           <button
             onClick={handleRestartStep}
             className="py-2 px-6 mt-6 text-100 bg-800 rounded-md border-transparent text-sm leading-6 hover:bg-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-900 focus:ring-brand-500 disabled:opacity-50 disabled:hover:bg-brand-500"
           >
-            {typographies.successfully.buttonLabel}
+            {labels.successfully.button}
           </button>
         </div>
       </>
@@ -159,14 +159,14 @@ export function Widget({
           </svg>
 
           <span className="text-100 text-xl mt-2">
-            {typographies.error.title}
+            {labels.error.heading}
           </span>
 
           <button
             onClick={handleRestartStep}
             className="py-2 px-6 mt-6 text-100 bg-800 rounded-md border-transparent text-sm leading-6 hover:bg-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-900 focus:ring-brand-500 disabled:opacity-50 disabled:hover:bg-brand-500"
           >
-            {typographies.error.buttonLabel}
+            {labels.error.button}
           </button>
         </div>
       </>

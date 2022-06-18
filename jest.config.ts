@@ -5,7 +5,7 @@ export default {
     "\\.css$": "identity-obj-proxy"
   },
   setupFilesAfterEnv: [
-    "<rootDir>/src/setup-tests.ts"
+    "<rootDir>/setup-tests.js"
   ],
   testEnvironment: "jsdom",
   testMatch: [

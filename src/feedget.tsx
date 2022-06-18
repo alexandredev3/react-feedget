@@ -5,12 +5,12 @@ import { Popover, Transition as UITransition } from "@headlessui/react";
 import { VariationPlacement } from "@popperjs/core";
 import { usePopper } from "react-popper";
 import { ChatTeardropDots } from "phosphor-react";
-import mergeWith from "lodash.mergewith";
+import merge from "lodash.merge";
 
-import type { VariationsPlacement, FeedgetProps, Typography } from "./typings";
+import type { VariationsPlacement, FeedgetProps } from "./typings";
 
 import { applyColors, extendColors } from "./colors";
-import { colors, typographies } from "./constants";
+import { colors, defaultLabels } from "./constants";
 
 import { FeedgetProvider } from "./feedget-context";
 import { Widget } from "./widget";
@@ -45,12 +45,12 @@ const placements: Placements = {
   },
 };
 
-export function Feedget({
+export default function Feedget({
   options,
   Icon = <ChatTeardropDots id="feedget-bubble-icon" />,
   renderFooter,
   onSent,
-  typography,
+  labels,
   extendTheme,
   placement = "end-bottom",
   transition = {
@@ -74,9 +74,9 @@ export function Feedget({
 
   const position = placements[placement];
 
-  const typographiesMerged: Required<Typography> = mergeWith(
-    typographies,
-    typography
+  const labelsMerged = merge(
+    labels,
+    defaultLabels
   );
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
@@ -94,7 +94,7 @@ export function Feedget({
   }, [extendTheme?.colors]);
 
   return (
-    <FeedgetProvider options={options} typographies={typographiesMerged}>
+    <FeedgetProvider options={options} labels={labelsMerged}>
       <Popover id="feedget-popover-panel" className={position.contentPlacement}>
         <UITransition
           enter={transition.enter.animate}
@@ -122,7 +122,7 @@ export function Feedget({
           })}
           <span className="text-brand-100 whitespace-nowrap max-w-0 translate-y-5 opacity-0 overflow-hidden group-hover:max-w-xs group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
             <span className="pl-2" />
-            {typographiesMerged.bubbleLabel}
+            {labelsMerged.bubble}
           </span>
         </Popover.Button>
       </Popover>

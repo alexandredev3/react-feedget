@@ -1,20 +1,18 @@
 import { createContext, ReactNode, useContext } from "react";
 
-import type { Option, Options, Typography } from "./typings";
-
-type Typographies = Required<Typography>;
+import type { Option, Options, Labels } from "./typings";
 
 interface FeedgetProviderProps {
   children: ReactNode;
   options: {
     [key: string]: Option;
   };
-  typographies: Typographies;
+  labels: Labels;
 }
 
 interface FeedgetContextProps {
   options: Options;
-  typographies: Typographies;
+  labels: Labels;
 }
 
 export const FeedgetContext = createContext<FeedgetContextProps>(
@@ -24,13 +22,13 @@ export const FeedgetContext = createContext<FeedgetContextProps>(
 export function FeedgetProvider({
   children,
   options,
-  typographies,
+  labels,
 }: FeedgetProviderProps) {
   return (
     <FeedgetContext.Provider
       value={{
         options,
-        typographies,
+        labels,
       }}
     >
       {children}
