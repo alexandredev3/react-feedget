@@ -1,4 +1,4 @@
-import merge from 'lodash.merge';
+import merge from "just-merge";
 
 import type { Colors } from "./typings";
 
@@ -8,11 +8,11 @@ export const extendColors = (colors: Colors, colorsToExtend: Colors) => {
   applyColors(extendedColors);
 }
 
-export const applyColors = (newColors: Colors) => {
+export const applyColors = (colors: Colors) => {
   if (typeof window !== "undefined") {
     const element = window.document.getElementById("feedget-popover-panel");
 
-    Object.entries(newColors).forEach(([key, color]) => {
+    Object.entries(colors).forEach(([key, color]) => {
       return element?.style.setProperty("--color-" + key, color as string);
     });
   }
@@ -21,4 +21,4 @@ export const applyColors = (newColors: Colors) => {
 export const mergeColors = <TColors, TExtendColors>(
   colors: TColors,
   extendColors: TExtendColors
-): Colors => merge(colors, extendColors);
+): Colors => merge(colors as Object, extendColors as Object);

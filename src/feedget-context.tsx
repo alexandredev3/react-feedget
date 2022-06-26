@@ -15,7 +15,7 @@ interface FeedgetContextProps {
   labels: Labels;
 }
 
-export const FeedgetContext = createContext<FeedgetContextProps>(
+const FeedgetContext = createContext<FeedgetContextProps>(
   {} as FeedgetContextProps
 );
 

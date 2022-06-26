@@ -1,33 +1,35 @@
-import { useState } from "react";
-import { Camera, Trash } from "phosphor-react";
-import html2canvas from "html2canvas";
+import { useState } from 'react';
+import { Camera, Trash } from 'phosphor-react';
+import html2canvas from 'html2canvas';
 
-import { Loading } from "./loading";
+import { Loading } from './loading';
 
 interface ScreenshotButtonProps {
+  preview: string | null;
   onScreenshotTook: (base64screenshot: string | null) => void;
 }
 
-export function ScreenshotButton({ onScreenshotTook }: ScreenshotButtonProps) {
+export function ScreenshotButton({
+  preview,
+  onScreenshotTook,
+}: ScreenshotButtonProps) {
   const [isTakingScreenshot, setIsTakingScreenshot] = useState(false);
-  const [preview, setPreview] = useState<string | null>(null);
 
   async function handleTakeScreenshot() {
     try {
       setIsTakingScreenshot(true);
 
-      const htmlDocument = document.querySelector("html");
+      const htmlDocument = document.querySelector('html');
       const popoverElement = htmlDocument?.querySelector(
-        "#feedbubble-popover-panel"
+        '#feedbubble-popover-panel'
       );
 
       const canvas = await html2canvas(htmlDocument!, {
-        ignoreElements: (element) => popoverElement === element,
+        ignoreElements: element => popoverElement === element,
       });
       const base64image = canvas.toDataURL();
 
       onScreenshotTook(base64image);
-      setPreview(base64image);
     } catch (err) {
       console.error(err);
       throw err;
@@ -42,7 +44,6 @@ export function ScreenshotButton({ onScreenshotTook }: ScreenshotButtonProps) {
         type="button"
         onClick={() => {
           onScreenshotTook(null);
-          setPreview(null);
         }}
         className="p-1 w-10 h-10 rounded-md border-transparent flex justify-end items-end text-400 hover:text-100 transition-colors"
         style={{

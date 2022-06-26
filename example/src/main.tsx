@@ -8,6 +8,18 @@ function Example() {
       <h1>Hello World</h1>
 
       <Feedget
+        transition={{
+          enter: {
+            animate: 'transition-opacity duration-300',
+            from: 'opacity-0',
+            to: 'opacity-100',
+          },
+          leave: {
+            animate: 'transition-opacity duration-150',
+            from: 'opacity-100',
+            to: 'opacity-0',
+          },
+        }}
         options={{
           BUG: {
             title: 'Problema',

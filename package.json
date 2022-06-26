@@ -1,6 +1,6 @@
 {
   "name": "react-feedget",
-  "version": "1.1.2",
+  "version": "1.1.4",
   "license": "MIT",
   "author": "alexandredev3",
   "main": "dist/index.js",
@@ -37,11 +37,10 @@
     "@headlessui/react": "^1.6.2",
     "@popperjs/core": "^2.11.5",
     "html2canvas": "^1.4.1",
-    "lodash.merge": "^4.6.2",
+    "just-merge": "^3.0.1",
     "phosphor-react": "^1.4.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-hook-form": "^7.31.1",
     "react-popper": "^2.3.0"
   },
   "devDependencies": {

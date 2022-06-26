@@ -1,10 +1,10 @@
 [
   {
-    "path": "dist/feedget.cjs.production.min.js",
-    "limit": "10 KB"
+    "path": "dist/react-feedget.cjs.production.min.js",
+    "limit": "226 KB"
   },
   {
-    "path": "dist/feedget.esm.js",
-    "limit": "10 KB"
+    "path": "dist/react-feedget.esm.js",
+    "limit": "226 KB"
   }
 ]

@@ -5,9 +5,9 @@ import { Popover, Transition as UITransition } from "@headlessui/react";
 import { VariationPlacement } from "@popperjs/core";
 import { usePopper } from "react-popper";
 import { ChatTeardropDots } from "phosphor-react";
-import merge from "lodash.merge";
+import merge from "just-merge";
 
-import type { VariationsPlacement, FeedgetProps } from "./typings";
+import type { VariationsPlacement, FeedgetProps, Labels } from "./typings";
 
 import { applyColors, extendColors } from "./colors";
 import { colors, defaultLabels } from "./constants";
@@ -45,13 +45,13 @@ const placements: Placements = {
   },
 };
 
-export default function Feedget({
+export function Feedget({
   options,
   Icon = <ChatTeardropDots id="feedget-bubble-icon" />,
   renderFooter,
   onSent,
-  labels,
-  extendTheme,
+  labels = {},
+  extendTheme = {},
   placement = "end-bottom",
   transition = {
     enter: {
@@ -75,9 +75,9 @@ export default function Feedget({
   const position = placements[placement];
 
   const labelsMerged = merge(
-    labels,
+    labels as Object,
     defaultLabels
-  );
+  ) as Labels;
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
     placement: position.placement,

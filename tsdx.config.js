@@ -10,7 +10,7 @@ module.exports = {
           autoprefixer(),
           cssnano({
             preset: 'default',
-          }),
+          })
         ],
         inject: false,
         extract: !!options.writeMeta,

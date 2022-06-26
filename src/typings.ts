@@ -29,7 +29,7 @@ export interface Options {
   [key: string]: Option;
 }
 export interface FormValues {
-  comment: string;
+  message: string;
   screenshot: string | null;
 }
 export interface Transition {
